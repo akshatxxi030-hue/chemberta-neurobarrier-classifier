@@ -4,4 +4,4 @@ models/
 __pycache__/
 *.pkl
 *.bin
-.env
+.venv
