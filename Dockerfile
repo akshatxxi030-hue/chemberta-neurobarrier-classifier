@@ -1,16 +1,12 @@
-FROM python:3.10
+FROM python:3.11-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
-# install CPU torch
-RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
-
-# install rest
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
