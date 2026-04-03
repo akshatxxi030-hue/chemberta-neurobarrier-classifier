@@ -15,7 +15,7 @@ import requests
 
 app=FastAPI()
 
-MODEL_PATH=r"D:\THIS PC\python_workspace\Drug_Discovery\models\drug_discovery_v1"
+MODEL_PATH="models/drug_discovery_v1"
 tokenizer=AutoTokenizer.from_pretrained(MODEL_PATH)
 model=AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
 model.eval()

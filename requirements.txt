@@ -1,8 +1,9 @@
 pandas
 numpy==1.26.4
 scikit-learn
-pip install torch==2.2.2 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 transformers==4.41.2
 mlflow
 peft
-rdkit
+rdkit-pypi
+fastapi
+uvicorn
