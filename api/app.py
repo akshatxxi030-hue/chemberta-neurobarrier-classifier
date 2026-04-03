@@ -7,8 +7,10 @@ import numpy as np
 from rdkit.Chem import Draw
 import base64
 from io import BytesIO
-from src.utils import mol_structure,molecular_weight
+from src.utils import mol_structure,molecular_weight,mol_name
 from fastapi.middleware.cors import CORSMiddleware
+import requests
+
 
 
 app=FastAPI()
@@ -41,7 +43,7 @@ def health():
     }
 
 @app.post('/predict')
-def predict(input:DrugInput):
+async def predict(input:DrugInput):
     try:
         tokens=tokenizer(
             input.smiles,
@@ -58,6 +60,7 @@ def predict(input:DrugInput):
 
             mw=molecular_weight(input.smiles)
             structure_img=mol_structure(input.smiles)
+            name=mol_name(input.smiles)
         
 
             return{
@@ -65,6 +68,7 @@ def predict(input:DrugInput):
                 "bbb_permeable":prob>=0.5,
                 "label":"BBB+" if prob>=0.5 else "BBB-",
                 'molecular_weight':mw,
+                'common-name':name,
                 "molecule_structure":structure_img,
                 "confidence":round(prob,4)
                 

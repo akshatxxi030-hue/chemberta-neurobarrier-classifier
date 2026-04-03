@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsPanel  = document.getElementById('results-panel');
     const molImage      = document.getElementById('mol-image');
     const resLabel      = document.getElementById('res-label');
+    const resName       = document.getElementById('res-name');
     const resConfidence = document.getElementById('res-confidence');
     const resWeight     = document.getElementById('res-weight');
     const resSmiles     = document.getElementById('res-smiles');
@@ -33,8 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!res.ok) {
-                const err = await res.json().catch(() => ({}));
-                throw new Error(err.detail || `Server error: ${res.status}`);
+                const errBody = await res.json().catch(() => ({}));
+                // FastAPI Pydantic validation errors: detail is an array of {loc, msg, type}
+                // HTTP exceptions: detail is a plain string
+                let message;
+                if (Array.isArray(errBody.detail)) {
+                    message = errBody.detail
+                        .map(e => e.msg || JSON.stringify(e))
+                        .join(' · ');
+                } else if (typeof errBody.detail === 'string') {
+                    message = errBody.detail;
+                } else {
+                    message = `Server error: ${res.status}`;
+                }
+                throw new Error(message);
             }
 
             displayResults(await res.json());
@@ -68,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         molImage.src  = `data:image/png;base64,${data.molecule_structure}`;
         resSmiles.textContent = data.smiles;
+        resName.textContent   = data['common-name'] || '—';
 
         resLabel.textContent = data.label;
         resLabel.className   = 'stat-val ' + (data.bbb_permeable ? 'status-pos' : 'status-neg');
