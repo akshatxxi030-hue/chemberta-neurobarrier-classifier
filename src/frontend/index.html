@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBB Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- dark blurred background tiles -->
+    <div class="bg-grid"></div>
+    <div class="bg-overlay"></div>
+
+    
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <!-- ══ ONE unified centered column ══ -->
+    <div class="page">
+
+        <header class="hero">
+            <span class="eyebrow">Deep Learning · Molecular Science</span>
+            <h1>Blood-Brain Barrier<br><em>Permeability Predictor</em></h1>
+            <p class="hero-sub">
+                Paste a SMILES string below to classify whether a molecule<br>
+                can cross the Blood-Brain Barrier.
+            </p>
+        </header>
+
+        <!-- unified glass form + result container -->
+        <div class="card glass">
+
+            <!-- ── Input row ── -->
+            <div class="input-row">
+                <input id="smiles-input"
+                       type="text"
+                       placeholder="Enter SMILES sequence…"
+                       autocomplete="off" spellcheck="false">
+                <button id="predict-btn" type="button">
+                    <span class="btn-text">Analyze</span>
+                    <div class="spinner loader-hidden" id="btn-spinner"></div>
+                </button>
+            </div>
+
+            <!-- error -->
+            <div id="error-msg" class="error-msg" style="display:none;"></div>
+
+            <!-- ── Results — hidden until analysis ── -->
+            <div id="results-panel" style="display:none;">
+
+                <div class="divider"></div>
+
+                <div class="result-body">
+                    <!-- molecule image left -->
+                    <div class="mol-wrap">
+                        <span class="lbl">2D Structure</span>
+                        <img id="mol-image" src="" alt="Molecule">
+                    </div>
+
+                    <!-- metrics right -->
+                    <div class="stats">
+                        <div class="stat-row">
+                            <span class="lbl">Permeability</span>
+                            <span class="stat-val" id="res-label"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="lbl">Model Confidence</span>
+                            <span class="stat-val mono" id="res-confidence"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="lbl">Molecular Weight</span>
+                            <span class="stat-val mono" id="res-weight"></span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="lbl">SMILES Input</span>
+                            <span class="stat-val mono sm" id="res-smiles"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footnotes -->
+        <footer class="footnotes">
+            <div class="fn">
+                <span class="fn-title">What is SMILES?</span>
+                A notation system representing chemical structures as ASCII strings for computational analysis.
+            </div>
+            <div class="fn-sep"></div>
+            <div class="fn warn">
+                <span class="fn-title">⚠ Caution</span>
+                For research only. Predictions may be inaccurate — validate experimentally.
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@ from rdkit.Chem import Draw
 import base64
 from io import BytesIO
 from src.utils import mol_structure,molecular_weight
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app=FastAPI()
@@ -16,6 +17,14 @@ MODEL_PATH=r"D:\THIS PC\python_workspace\Drug_Discovery\models\drug_discovery_v1
 tokenizer=AutoTokenizer.from_pretrained(MODEL_PATH)
 model=AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
 model.eval()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get('/')
