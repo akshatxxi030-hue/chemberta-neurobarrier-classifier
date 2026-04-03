@@ -5,3 +5,4 @@ pip install torch==2.2.2 torchvision torchaudio --index-url https://download.pyt
 transformers==4.41.2
 mlflow
 peft
+rdkit
