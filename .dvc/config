@@ -2,3 +2,5 @@
     remote = myremote
 ['remote "myremote"']
     url = D:\dvc--storage
+['remote "origin"']
+    url = https://dagshub.com/akshatxxi030-hue/chemberta-neurobarrier-classifier.dvc
