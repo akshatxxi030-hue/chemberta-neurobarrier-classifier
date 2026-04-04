@@ -9,6 +9,7 @@ import base64
 from io import BytesIO
 from src.utils import mol_structure,molecular_weight,mol_name
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import requests
 
 
@@ -27,13 +28,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.get('/')
-def home():
-    return{
-        "message":"BBB classifier"
-    }
 
 
 @app.get('/health')
@@ -77,4 +71,4 @@ async def predict(input:DrugInput):
     except Exception as e:
         raise HTTPException(status_code=500,detail=str(e))
 
-     
+app.mount("/", StaticFiles(directory="src/frontend", html=True), name="frontend")
