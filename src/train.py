@@ -113,10 +113,10 @@ def finetuning(train_dataset,test_dataset):
 
         trainer.train()
         metrics=trainer.evaluate()
-        #mlflow.log_metric("eval_loss",metrics["eval_loss"])
+        mlflow.log_metric("eval_loss",metrics["eval_loss"])
         trainer.save_model("./models/drug_discovery_v1")
         tokenizer.save_pretrained("./models/drug_discovery_v1")
-        #mlflow.log_artifacts("./models/drug_discovery_v1",artifact_path="model")
+        mlflow.log_artifacts("./models/drug_discovery_v1",artifact_path="model")
         model.push_to_hub("akshat3260/chemberta-bbb-classifier")
         tokenizer.push_to_hub("akshat3260/chemberta-bbb-classifier")
         

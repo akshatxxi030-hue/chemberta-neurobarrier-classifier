@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resWeight     = document.getElementById('res-weight');
     const resSmiles     = document.getElementById('res-smiles');
 
-    const API_URL = 'http://127.0.0.1:8000/predict';
+    const API_URL = 'https://chemberta-neurobarrier-classifier.onrender.com/predict';
 
     predictBtn.addEventListener('click', handleAnalyze);
     smilesInput.addEventListener('keydown', (e) => {
