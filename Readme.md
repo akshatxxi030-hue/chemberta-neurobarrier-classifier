@@ -1,4 +1,5 @@
-**Live render deploymemt link:** https://chemberta-neurobarrier-classifier.onrender.com/
+**Live render deployed link:** https://chemberta-neurobarrier-classifier.onrender.com/
+**NOTE:** Due to free-tier limitations on render the web page may take 30-45 seconds of cold start after that it will work fine.
 
 This is a web app I built to predict Blood-Brain Barrier (BBB) permeability for drug compounds. You just feed it a SMILES string, and it tells you if the compound is likely to cross the BBB or not.
 
