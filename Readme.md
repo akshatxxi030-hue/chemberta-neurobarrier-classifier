@@ -31,6 +31,10 @@ You can view or use the fine-tuned model directly from here:
 - **ML:** PyTorch, Transformers (ChemBERTa), Scikit-learn, PEFT
 - **Chemistry:** RDKit (for 2D structures and molecular weights)
 - **Frontend:** Vanilla HTML/CSS/JS
+- **Dockerfile**
+- **Model versioning:** DVC
+- **Deployment**: Render
+- **CI-CD:** GitHub Actions
 
 ## Project Layout
 - `api/` - The FastAPI backend and data schemas
