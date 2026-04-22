@@ -26,7 +26,7 @@ The model was evaluated on an unseen test dataset to ensure it generalizes well.
 - **Accuracy:** 83.3%
 
 You can view or use the fine-tuned model directly from here:
-👉 **[akshat3260/chemberta-bbb-classifier](https://huggingface.co/akshat3260/chemberta-bbb-classifier)**
+👉 **[akshat3260/chemberta-bbb-classifier](https://huggingface.co/akshat3260/chemberta-bbb-classifier)
 **
 
 ## Tech Stack
