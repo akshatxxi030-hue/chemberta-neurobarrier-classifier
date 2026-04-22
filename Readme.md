@@ -18,7 +18,7 @@ Because we have a FastAPI backend, the model inference is exposed via a clean RE
 
 ## Model Performance & Access
 
-The model was evaluated on an unseen test dataset to ensure it generalizes well. Based on the final training results (Checkpoint 1955), it achieved the following metrics:
+The model was evaluated on an unseen test dataset to ensure it generalizes well. Based on the final training results, it achieved the following metrics:
 - **ROC AUC:** 0.914
 - **F1 Score:** 0.871
 - **Accuracy:** 83.3%
