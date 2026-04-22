@@ -23,8 +23,8 @@ The model was evaluated on an unseen test dataset to ensure it generalizes well.
 - **F1 Score:** 0.871
 - **Accuracy:** 83.3%
 
-You can view, download, or use the fine-tuned model directly from the Hugging Face Hub here:
-👉 **[akshat3260/chemberta-bbb-classifier](https://huggingface.co/akshat3260/chemberta-bbb-classifier)**
+You can view or use the fine-tuned model directly from here:
+👉 **https://chemberta-neurobarrier-classifier.onrender.com/**
 
 ## Tech Stack
 - **Backend:** FastAPI, Uvicorn
